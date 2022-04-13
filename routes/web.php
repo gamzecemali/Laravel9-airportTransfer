@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/',[HomeController::class,'index'])->name(name:'home');
+
+Route::get('/test',[HomeController::class,'test'])->name(name:'test');
+
+Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name(name:'param');
+
+Route::post('save',[HomeController::class,'save'])->name(name:'save');
+
+
+
+
 
 Route::middleware([
     'auth:sanctum',
