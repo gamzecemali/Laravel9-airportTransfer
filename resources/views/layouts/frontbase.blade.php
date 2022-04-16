@@ -13,6 +13,6 @@
     @yield('content')
 </div>
 <h1>Footer</h1>
-@yield('content')
+@yield('foot')
 </body>
 </html>
