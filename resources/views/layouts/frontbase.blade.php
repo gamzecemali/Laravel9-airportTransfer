@@ -67,7 +67,10 @@
 
 </head>
 <body>
+
 @include("home.header")
+
+
 
 
 
