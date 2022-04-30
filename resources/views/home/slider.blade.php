@@ -9,7 +9,7 @@
         <div class="row">
             <div class="owl-carousel owl-carousel-carousel">
                 <div class="item">
-                    <a href="#"><img src="{{asset('assets')}}/images/img_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+                    <a href="#"><img src="{{asset('assets')}}/images/f2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
                 </div>
                 <div class="item">
                     <a href="#"><img src="{{asset('assets')}}/images/img_2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>

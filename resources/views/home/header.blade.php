@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-xs-8 text-right menu-1">
                         <ul>
-                            <li><a href="features.html">Features</a></li>
+                            <li><a href="HAKKIMIZDA.html">HAKKIMIZDA</a></li>
                             <li><a href="tour.html">Tour</a></li>
                             <li class="has-dropdown">
                                 <a href="#">Dropdown</a>
@@ -32,21 +32,20 @@
                     </div>
                 </div>
     </div>
-        </nav>
-        <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url("{{asset('assets')}}/imagesimages/img_4.jpg)">
+</nav>
+
+        <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url("{{asset('assets')}}/images/f1.jpg)">
             <div class="overlay"></div>
             <div class="gtco-container">
                 <div class="row">
                     <div class="col-md-12 col-md-offset-0 text-left">
-                        <div class="row row-mt-15em">
-                            <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-                                <span class="intro-text-small">Welcome to Splash</span>
-                                <h1>Build website using this template.</h1>
-                    </div>
-                        </div>
                     </div>
                 </div>
             </div>
     </div>
 </div>
-</div>
+
+</nav>
+
+
+

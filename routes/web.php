@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name(name:'p
 
 Route::post('save',[HomeController::class,'save'])->name(name:'save');
 
+
+
+
+Route::get('/admin',[AdminHomeController::class,'index'])->name(name:'admin');
 
 
 
