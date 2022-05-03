@@ -1,38 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield("title")</title>
-
-    <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title')</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="{{asset('assets')}}/admin/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/assets/css/style.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/assets/css/main-style.css" rel="stylesheet" />
     @yield("head")
-
 </head>
 <body>
-@include('admin.header')
+@include("admin.header")
 
-@section('sidebar')
-
+@section("sidebar")
     @include("admin.sidebar")
-
-
 @show
+@yield("content")
+@include("admin.footer")
+@yield("foot")
 
 
-@yield('content')
-
-
-<@include("admin.footer")
-
-@yield('foot')
 
 </body>
+
 </html>

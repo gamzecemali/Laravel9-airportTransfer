@@ -30,11 +30,6 @@ Route::post('save',[HomeController::class,'save'])->name(name:'save');
 
 
 
-Route::get('/admin',[AdminHomeController::class,'index'])->name(name:'admin');
-
-
-
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -44,3 +39,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/admin',[AdminHomeController::class,'index'])->name(name:'admin');

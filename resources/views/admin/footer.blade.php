@@ -1,33 +1,6 @@
-<!-- /. NAV SIDE  -->
-<div id="page-wrapper" >
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Blank Page</h2>
-                <h5>Welcome Jhon Deo , Love to see you back. </h5>
-
-            </div>
-        </div>
-        <!-- /. ROW  -->
-        <hr />
-
-    </div>
-    <!-- /. PAGE INNER  -->
-</div>
-<!-- /. PAGE WRAPPER  -->
-</div>
-<!-- /. WRAPPER  -->
-<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-<!-- JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- BOOTSTRAP SCRIPTS -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- METISMENU SCRIPTS -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- CUSTOM SCRIPTS -->
-<script src="assets/js/custom.js"></script>
-
-
-</body>
-</html>
+<script src="{{asset('assets')}}/admin/assets/plugins/plugins/jquery-1.10.2.js"></script>
+<script src="{{asset('assets')}}/admin/assets/plugins/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="{{asset('assets')}}/admin/assets/plugins/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="{{asset('assets')}}/admin//assets/plugins/plugins/pace/pace.js"></script>
+<script src="{{asset('assets')}}/admin/assets/plugins/scripts/siminta.js"></script>
 
