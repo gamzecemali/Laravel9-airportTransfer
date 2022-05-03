@@ -8,6 +8,8 @@
     <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
     <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
     <meta name="author" content="FreeHTML5.co" />
+
+
     <title>@yield("title")</title>
 
 
@@ -59,38 +61,28 @@
     <link rel="stylesheet" href="{{asset('assets')}}/css/style.css">
 
     <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="{{asset('assets')}}/js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
+    <script src="{{asset('assets')}}/js/respond.min.js"></script>
     <![endif]-->
-    @yield("head")
-
+@yield("head")
 </head>
 <body>
-
-
 @include("home.header")
 
 
-@section('sidebar')
-    @include("home.sidebar")
-
-
     @yield('content')
-
-@show
-
 
 @section('slider')
     @include("home.slider")
 @show
 
 
+@include("home.footer")
+    @yield('foot')
 
-<@include("home.footer")
-
-@yield('foot')
 </body>
 </html>
+
 
