@@ -25,7 +25,7 @@ Route::get('/test',[HomeController::class,'test'])->name(name:'test');
 
 Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name(name:'param');
 
-Route::post('save',[HomeController::class,'save'])->name(name:'save');
+Route::post('/save',[HomeController::class,'save'])->name(name:'save');
 
 
 
@@ -41,3 +41,7 @@ Route::middleware([
 });
 
 Route::get('/admin',[AdminHomeController::class,'index'])->name(name:'admin');
+
+Route::get('/admin/category',[\App\Http\Controllers\AdminPanel\CategoryController::class,'index'])->name(name:'admin_category');
+Route::get('/admin/category/create',[\App\Http\Controllers\AdminPanel\CategoryController::class,'create'])->name(name:'admin_category_create');
+Route::post('/admin/category/store',[\App\Http\Controllers\AdminPanel\CategoryController::class,'store'])->name(name:'admin_category_store');
