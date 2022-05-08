@@ -8,15 +8,18 @@
     <div id="page-wrapper">
 
         <div class="row">
+
             <!-- Page Header -->
             < class="col-lg-12">
-            <a href="/admin/category/create" class="btn btn-block btn-success btn=sm" style="width: 200px">Add Category</a>
+
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Category List
+                        <a href="/admin/category/create" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Category</a>
+                        <br>Category List
                     </div>
                     <div class="panel-body">
+
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
@@ -44,7 +47,8 @@
                                     <td>{{$rs -> status}}</td>
                                     <td>{{$rs -> image}}</td>
                                     <td><a href="/admin/category/edit/{{$rs ->id}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
-                                    <td><a href="/admin/category/delete/{{$rs ->id}}" class="btn btn-block btn-danger btn=sm">Delete</a></td>
+                                    <td><a href="/admin/category/destroy/{{$rs ->id}}"onclick="return confirm ('Deleting! Are you sure?')"
+                                       class="btn btn-block btn-danger btn=sm">Delete</a>
                                     <td><a href="/admin/category/show/{{$rs ->id}}" class="btn btn-block btn-success btn=sm">Show</a></td>
                                 </tr>
                                 @endforeach
