@@ -9,8 +9,9 @@
 
         <div class="row">
             <!-- Page Header -->
-            <div class="col-lg-12">
-                <h1 class="page-header">CategoryList</h1>
+            < class="col-lg-12">
+            <a href="/admin/category/create" class="btn btn-block btn-success btn=sm" style="width: 200px">Add Category</a>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Category List
