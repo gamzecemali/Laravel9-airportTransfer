@@ -15,7 +15,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="/admin/category/create" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Category</a>
+                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Category</a>
                         <br>Category List
                     </div>
                     <div class="panel-body">
@@ -46,10 +46,10 @@
                                     <td>{{$rs -> slug}}</td>
                                     <td>{{$rs -> status}}</td>
                                     <td>{{$rs -> image}}</td>
-                                    <td><a href="/admin/category/edit/{{$rs ->id}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
-                                    <td><a href="/admin/category/destroy/{{$rs ->id}}"onclick="return confirm ('Deleting! Are you sure?')"
+                                    <td><a href="{{route('admin.category.edit', ['id'=>$rs ->id])}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
+                                    <td><a href="{{route('admin.category.destroy', ['id'=>$rs ->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
                                        class="btn btn-block btn-danger btn=sm">Delete</a>
-                                    <td><a href="/admin/category/show/{{$rs ->id}}" class="btn btn-block btn-success btn=sm">Show</a></td>
+                                    <td><a href="{{route('admin.category.show', ['id'=>$rs ->id])}}" class="btn btn-block btn-success btn=sm">Show</a></td>
                                 </tr>
                                 @endforeach
 

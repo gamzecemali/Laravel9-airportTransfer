@@ -14,8 +14,8 @@
                 <h1 class="page-header">Detail Data: {{$data->title}}</h1>
 
                 <div class="col-lg-12">
-                    <a href="/admin/category/edit/{{$data->id}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Edit</a>
-                    <a href="/admin/category/destroy/{{$data->id}}"onclick="return confirm ('Deleting! Are you sure?')"
+                    <a href="{{route('admin.category.edit', ['id'=>$data  ->id])}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Edit</a>
+                    <a href="{{route('admin.category.destroy', ['id'=>$data  ->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
                        class="btn btn-block btn-danger btn=sm" style="width: 100px">Delete</a>
 
                 </div>
@@ -29,7 +29,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="/admin/category/update/{{$data->id}}" method="post">
+                            <form role="form" action="{{route('admin.category.update', ['id'=>$data ->id])}}" method="post">
                                 @csrf
 
                                 <div class="form-group">
