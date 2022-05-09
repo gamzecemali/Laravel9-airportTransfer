@@ -45,7 +45,11 @@
                                     <td>{{$rs -> description}}</td>
                                     <td>{{$rs -> slug}}</td>
                                     <td>{{$rs -> status}}</td>
-                                    <td>{{$rs -> image}}</td>
+                                    <td>
+                                    @if($rs->image)
+                                    <img src="{{Storage::url($rs->image)}}" style="height: 40px">
+                                    @endif
+
                                     <td><a href="{{route('admin.category.edit', ['id'=>$rs ->id])}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
                                     <td><a href="{{route('admin.category.destroy', ['id'=>$rs ->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
                                        class="btn btn-block btn-danger btn=sm">Delete</a>
