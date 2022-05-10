@@ -25,9 +25,8 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Parent</th>
                                     <th>Title</th>
-                                    <th>Keywords</th>
-                                    <th>Description</th>
                                     <th>Slug</th>
                                     <th>Status</th>
                                     <th>Image</th>
@@ -40,9 +39,8 @@
                                 @foreach( $data as $rs)
                                 <tr>
                                     <td>{{$rs -> id}}</td>
-                                    <td>{{$rs -> title}}</td>
                                     <td>{{$rs -> keywords}}</td>
-                                    <td>{{$rs -> description}}</td>
+                                    <td>{{$rs -> title}}</td>
                                     <td>{{$rs -> slug}}</td>
                                     <td>{{$rs -> status}}</td>
                                     <td>
