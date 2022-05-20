@@ -13,15 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('transfers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id');
+            $table->foreignId('category_id')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->string('title');
+            $table->string('detail');
             $table->string('keywords')->nullable();
             $table->string('description')->nullable();
-            $table->string('slug')->nullable();
             $table->string('image')->nullable();
-            $table->string('status',6);
+            $table->float('base_price')->nullable();
+            $table->float('km_price')->nullable();
+            $table->integer('capacity')->nullable();
+            $table->string('status',10)->default('False');
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -33,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('transfers');
     }
 };

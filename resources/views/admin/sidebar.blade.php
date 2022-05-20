@@ -36,7 +36,7 @@
             </li>
             <li>
 
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i><b>&nbsp;Transfer</b><span class="fa-arrow"></span></a>
+                <a href="/admin/transfer"><i class="fa fa-dashboard fa-fw"></i><b>&nbsp;Transfer</b><span class="fa-arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="flot.html">Airport</a>

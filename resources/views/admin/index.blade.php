@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Admin Panel')
+@section('title', 'Category List')
 
 
 
@@ -8,21 +8,13 @@
     <div id="page-wrapper">
 
         <div class="row">
+
             <!-- Page Header -->
             <div class="col-lg-12">
-                <h1 class="page-header">Blank Page</h1>
-            </div>
-            <!--End Page Header -->
+                <br>
+                <h1 class="col-lg-12">Blank page</h1>
+                </div>
         </div>
-
-
-
     </div>
-    <!-- end page-wrapper -->
-
-    <!-- end wrapper -->
-
-    <!-- Core Scripts - Include with every page -->
-
 
 @endsection

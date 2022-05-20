@@ -23,8 +23,5 @@
 @include("admin.footer")
 @yield("foot")
 
-
-
 </body>
-
 </html>

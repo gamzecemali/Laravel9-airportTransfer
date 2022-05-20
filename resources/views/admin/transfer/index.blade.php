@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Category List')
+@section('title', 'Transfer List')
 
 
 
@@ -15,7 +15,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{route('admin.category.create')}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Category</a>
+                    <a href="{{route('admin.transfer.create')}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Transfer</a>
                     <br>Category List
                 </div>
                 <div class="panel-body">
@@ -25,11 +25,15 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Parent</th>
+                                <th>Category</th>
                                 <th>Title</th>
+                                <th>Base Price</th>
+                                <th>Km Price</th>
+                                <th>Capacity</th>
                                 <th>Slug</th>
-                                <th>Status</th>
                                 <th>Image</th>
+                                <th>Image Gallery</th>
+                                <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                                 <th>Show</th>
@@ -38,21 +42,26 @@
                             <tbody>
                             @foreach( $data as $rs)
                                 <tr>
-
                                     <td>{{$rs -> id}}</td>
-                                    <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }}</td>
+                                    <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category , $rs->category->title) }}</td>
                                     <td>{{$rs -> title}}</td>
+                                    <td>{{$rs -> base_price}}</td>
+                                    <td>{{$rs -> km_price}}</td>
+                                    <td>{{$rs -> capacity}}</td>
                                     <td>{{$rs -> slug}}</td>
-                                    <td>{{$rs -> status}}</td>
                                     <td>
                                         @if($rs->image)
                                             <img src="{{Storage::url($rs->image)}}" style="height: 40px">
                                     @endif
+                                    </td>
 
-                                    <td><a href="{{route('admin.category.edit', ['id'=>$rs ->id])}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
-                                    <td><a href="{{route('admin.category.destroy', ['id'=>$rs ->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
+                                   <td><img src="{{asset('assets')}}/admin/assets/img/gallery.jpg" style="height: 40px"></td>
+                                    <td>{{$rs -> status}}</td>
+
+                                    <td><a href="{{route('admin.transfer.edit', ['id'=>$rs ->id])}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
+                                    <td><a href="{{route('admin.transfer.destroy', ['id'=>$rs ->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
                                            class="btn btn-block btn-danger btn=sm">Delete</a>
-                                    <td><a href="{{route('admin.category.show', ['id'=>$rs ->id])}}" class="btn btn-block btn-success btn=sm">Show</a></td>
+                                    <td><a href="{{route('admin.transfer.show', ['id'=>$rs ->id])}}" class="btn btn-block btn-success btn=sm">Show</a></td>
                                 </tr>
                             @endforeach
 
@@ -65,9 +74,6 @@
         <!--End Page Header -->
     </div>
 
-
-
-    </div>
 
 
 

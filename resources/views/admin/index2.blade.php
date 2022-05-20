@@ -38,9 +38,8 @@
                             <tbody>
                             @foreach( $data as $rs)
                                 <tr>
-
                                     <td>{{$rs -> id}}</td>
-                                    <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }}</td>
+                                    <td>{{$rs -> keywords}}</td>
                                     <td>{{$rs -> title}}</td>
                                     <td>{{$rs -> slug}}</td>
                                     <td>{{$rs -> status}}</td>
