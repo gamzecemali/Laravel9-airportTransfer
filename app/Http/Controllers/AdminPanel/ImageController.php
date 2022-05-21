@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Image;
+use App\Models\Transfer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -14,18 +19,18 @@ class ImageController extends Controller
      */
     public function index($tid)
     {
-        //
+        $transfer= Transfer::find($tid);
+        //$images= Image::where('transfer_id', $tid);
+        $images = DB::table('images')->where('transfer_id', $tid)->get();
+        return view('admin.image.index', [
+            'transfer' => $transfer,
+            'images' => $images,
+
+
+    ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($tid)
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -36,6 +41,14 @@ class ImageController extends Controller
     public function store(Request $request, $tid)
     {
         //
+        $data=new Image();
+        $data->transfer_id = $tid;
+        $data->title = $request->title;
+        if ($request->file('image')) {
+            $data->image= $request->file('image')->store('images');
+        }
+        $data->save();
+        return redirect()->route('admin.image.index', ['tid'=>$tid]);
     }
 
     /**
@@ -78,8 +91,14 @@ class ImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($tid, $id)
+    public function destroy($tid,$id)
     {
         //
+        $data =Image::find($id);
+        if ($data->image && Storage::disk('public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect()->route('admin.image.index', ['tid'=>$tid]);
     }
 }

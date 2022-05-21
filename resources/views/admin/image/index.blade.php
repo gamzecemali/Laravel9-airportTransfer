@@ -1,74 +1,72 @@
-@extends('layouts.adminbase')
+@extends('layouts.adminwindows')
 
-@section('title', 'Category List')
-
-
+@section('title', 'Transfer Image Gallery')
 
 @section('content')
+
+
+
+
     <div id="page-wrapper">
-
         <div class="row">
+            <h3>{{$transfer->title}}</h3>
 
-            <!-- Page Header -->
-            < class="col-lg-12">
+            <form role="form" action="{{route('admin.image.store',['tid'=>$transfer->id])}}" method="post" enctype="multipart/form-data" >
+                @csrf
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title">
+                </div>
 
+
+                <div class="form-group">
+                    <label>İmage</label>
+                    <input type="file" name="image">
+                </div>
+                <div style="margin:0 0 10px 0 "><button type="submit" class="btn btn-primary">Save</button></div>
+
+            </form>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <a href="{{route('admin.category.create')}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Category</a>
-                    <br>Category List
-                </div>
-                <div class="panel-body">
-
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Parent</th>
-                                <th>Title</th>
-                                <th>Slug</th>
-                                <th>Status</th>
-                                <th>Image</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                <th>Show</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach( $data as $rs)
-                                <tr>
-
-                                    <td>{{$rs -> id}}</td>
-                                    <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }}</td>
-                                    <td>{{$rs -> title}}</td>
-                                    <td>{{$rs -> slug}}</td>
-                                    <td>{{$rs -> status}}</td>
-                                    <td>
-                                        @if($rs->image)
-                                            <img src="{{Storage::url($rs->image)}}" style="height: 40px">
-                                    @endif
-
-                                    <td><a href="{{route('admin.category.edit', ['id'=>$rs ->id])}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
-                                    <td><a href="{{route('admin.category.destroy', ['id'=>$rs ->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
-                                           class="btn btn-block btn-danger btn=sm">Delete</a>
-                                    <td><a href="{{route('admin.category.show', ['id'=>$rs ->id])}}" class="btn btn-block btn-success btn=sm">Show</a></td>
-                                </tr>
-                            @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <br>Transfer Image List
             </div>
-        </div>
-        <!--End Page Header -->
-    </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Delete</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach( $images as $rs)
+                            <tr>
+                                <td>{{$rs -> id}}</td>
+                                <td>{{$rs -> title}}</td>
 
 
+                                <td>
+                                    @if($rs->image)
+                                        <img src="{{Storage::url($rs->image)}}" style="height: 40px">
+                                @endif
 
-    </div>
 
+                                <td><a href="{{route('admin.image.destroy', ['tid'=>$transfer->id,'id'=>$rs->id])}}"onclick="return confirm ('Deleting! Are you sure?')"
+                                       class="btn btn-block btn-danger btn=sm">Delete</a>
 
-
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
 @endsection
+
+
+
+
+
+

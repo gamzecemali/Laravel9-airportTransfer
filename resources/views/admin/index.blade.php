@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <br>
                 <h1 class="col-lg-12">Blank page</h1>
-                </div>
+            </div>
         </div>
     </div>
 

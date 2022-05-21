@@ -35,8 +35,7 @@
                 <a href="index.html"><i class="fa fa-home fa-home"></i><b>&nbsp;Dashboard</b></a>
             </li>
             <li>
-
-                <a href="/admin/transfer"><i class="fa fa-dashboard fa-fw"></i><b>&nbsp;Transfer</b><span class="fa-arrow"></span></a>
+                <a href="/admin/transfer"><i class="fa fa-bar-chart-o fa-fw"></i>Transfer<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="flot.html">Airport</a>
@@ -47,6 +46,7 @@
                 </ul>
                 <!-- second-level-items -->
             </li>
+
             <li>
                 <a href="/admin/category"><i class="fa fa-bar-chart-o fa-fw"></i><b>&nbsp;Category</b></a>
                 <a href="/admin/rezervation"><i class="fa fa-edit fa-fw"></i><b>&nbsp;Rezervation</b></a>
@@ -65,3 +65,4 @@
     </div>
     <!-- end sidebar-collapse -->
 </nav>
+

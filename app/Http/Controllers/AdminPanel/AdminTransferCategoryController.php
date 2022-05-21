@@ -28,6 +28,7 @@ class AdminTransferCategoryController extends Controller
         //
 
         $data= Transfer::all() ;
+
         return view('admin.transfer.index', [
             'data' => $data
         ]);

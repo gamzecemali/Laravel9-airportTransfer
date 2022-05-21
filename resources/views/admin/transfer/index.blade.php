@@ -2,8 +2,6 @@
 
 @section('title', 'Transfer List')
 
-
-
 @section('content')
     <div id="page-wrapper">
 
@@ -44,7 +42,7 @@
                                 <tr>
                                     <td>{{$rs -> id}}</td>
                                     <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category , $rs->category->title) }}</td>
-                                    <td>{{$rs -> title}}</td>
+                                    <td>{{$rs->title}}</td>
                                     <td>{{$rs -> base_price}}</td>
                                     <td>{{$rs -> km_price}}</td>
                                     <td>{{$rs -> capacity}}</td>
@@ -54,8 +52,15 @@
                                             <img src="{{Storage::url($rs->image)}}" style="height: 40px">
                                     @endif
                                     </td>
+                                    <td>
+                                       <a href="{{route('admin.image.index', ['tid'=>$rs ->id])}}"
+                                       onclick="return !window.open(this.href, '', 'top=50 left=100 width=1100, height=700')">
 
-                                   <td><img src="{{asset('assets')}}/admin/assets/img/gallery.jpg" style="height: 40px"></td>
+                                       <img src="{{asset('assets')}}/admin/assets/img/gallery.jpg" style="height: 40px">
+                                   </a>
+                                   </td>
+
+
                                     <td>{{$rs -> status}}</td>
 
                                     <td><a href="{{route('admin.transfer.edit', ['id'=>$rs ->id])}}" class="btn btn-block btn-info btn=sm">Edit</a></td>
@@ -64,17 +69,6 @@
                                     <td><a href="{{route('admin.transfer.show', ['id'=>$rs ->id])}}" class="btn btn-block btn-success btn=sm">Show</a></td>
                                 </tr>
                             @endforeach
-
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End Page Header -->
-    </div>
-
-
-
-
 @endsection
