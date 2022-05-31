@@ -1,8 +1,11 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Edit Transfer:.$data->title')
+@section('title', 'Edit Transfer: '.$data->title)
 
-
+@section('head')
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endsection
 
 @section('content')
 
@@ -68,7 +71,7 @@
                                                 <div class="form-group">
                                                     <label>Detail Inf</label>
                                                     <textarea class="form-control" name="detail">
-                                                        {{$data->detail}}
+                                                        {!! $data->detail !!}
                                     </textarea>
 
                                 </div>
@@ -96,10 +99,15 @@
                                 </div>
                                 </div>
                             </form>
+@endsection
+@section('foot')
+                                <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
-
-
+    <script>
+    $(function () {
+        $('.textarea').summernote()
+    })
+    </script>
 @endsection
 
 

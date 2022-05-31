@@ -8,24 +8,17 @@
         </div>
         <div class="row">
             <div class="owl-carousel owl-carousel-carousel">
+                @foreach($transferlist1 as $rs)
                 <div class="item">
-                    <a href="#"><img src="{{asset('assets')}}/images/img_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+                    <a href="#"><img src="{{Storage::url($rs->image)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+                    <div style="text-align: center;color: white;font-weight:bold ;">
+                        {{$rs->title}}
+                    </div>
                 </div>
-                <div class="item">
-                    <a href="#"><img src="{{asset('assets')}}/images/img_2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="{{asset('assets')}}/images/img_3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="{{asset('assets')}}/images/img_4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-                </div>
+
+                @endforeach
             </div>
         </div>
     </div>
-</div>
-
-
-
-
+</div>bak
 

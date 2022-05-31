@@ -1,8 +1,9 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Add Transfer')
-
-
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 @section('content')
 
@@ -79,9 +80,19 @@
 
                                             <div class="form-group">
                                                 <label>Detail Inf.</label>
-                                                <textarea class="form-control" name="detail">
-                                    </textarea>
+                                                <textarea type="text" class="form-control" name="detail" id="detail">
+                                                </textarea>
 
+                                                <script>
+                                                    ClassicEditor
+                                                        .create( document.querySelector( '#detail' ) )
+                                                        .then( editor => {
+                                                            console.log( editor );
+                                                        } )
+                                                        .catch( error => {
+                                                            console.error( error );
+                                                        } );
+                                                </script>
 
 
                                             <div class=form-group">
@@ -96,12 +107,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
 @endsection
 
 

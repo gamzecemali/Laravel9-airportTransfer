@@ -2,6 +2,7 @@
 
 @section('title', 'Show Transfer: '.$data->title)
 
+
 @section('content')
 
     <div id="page-wrapper">
@@ -77,7 +78,7 @@
                             </tr>
                             <tr>
                                 <th>Detail Inf</th>
-                                <td>{{$data->detail}}</td>
+                                <td>{!! $data->detail !!}</td>
                             </tr>
                             <tr>
                                 <th>Created Date</th>
@@ -89,6 +90,16 @@
                             </tr>
                             </tr>
                             </thead>
+@endsection
+
+                            @section('foot')
+                                <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+                                <script>
+                                    $(function () {
+                                        $('.textarea').summernote()
+                                    })
+
+                                </script>
 @endsection
 
 

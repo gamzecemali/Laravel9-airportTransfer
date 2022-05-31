@@ -77,7 +77,7 @@
 @section('slider')
     @include("home.slider")
 @show
-
+hee tamam znladım cok saol ben ayrık çalışmaya gidiyom okeyy kolay gelsin çıskmış sorular yoksa atıyım istersenolr tamam atıyorum saol ben çıktım
 
 @include("home.footer")
     @yield('foot')
