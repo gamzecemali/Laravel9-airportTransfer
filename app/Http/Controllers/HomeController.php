@@ -4,20 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Transfer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     //
     public function index()
     {
+        $page='home';
         $sliderdata=Transfer::limit(4)->get();
         $transferlist1=Transfer::limit(6)->get();
         return view('home.index',[
+            'page'=>$page,
             'sliderdata'=>$sliderdata,
             'transferlist1'=>$transferlist1
         ]);
 
+    }
 
+    public function transfer($id)
+    {
+        $data =Transfer::find($id);
+        $images = DB::table('images')->where('transfer_id', $id)->get();
+        return view('home.transfer',[
+            'data'=>$data,
+            'images'=>$images
+        ]);
     }
 
 
@@ -25,7 +37,6 @@ class HomeController extends Controller
 
     {
         return view('home.test');
-
 
     }
 

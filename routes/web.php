@@ -30,6 +30,9 @@ Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name(name:'p
 
 Route::post('/save',[HomeController::class,'save'])->name(name:'save');
 
+Route::get('/transfer/{id}/',[HomeController::class,'transfer'])->name(name:'transfer');
+
+
 
 
 

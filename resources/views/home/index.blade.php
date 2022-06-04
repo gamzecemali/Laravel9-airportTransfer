@@ -2,9 +2,7 @@
 
 @section('title', 'e commerce project')
 
-@section('slider')
-    @include('home.slider')
-@endsection
+
 
 @section('content')
     <header id="gtco-header" class="gtco-cover" role="banner"
@@ -188,4 +186,8 @@
     </div>
     </div>
 
+@endsection
+
+@section('slider')
+    @include('home.slider')
 @endsection

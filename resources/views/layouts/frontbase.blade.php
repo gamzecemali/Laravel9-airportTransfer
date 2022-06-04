@@ -40,7 +40,6 @@
     <meta name="twitter:card" content="" />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{asset('assets')}}/css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -72,11 +71,9 @@
 @include("home.header")
 
 
-    @yield('content')
+@yield('content')
 
-@section('slider')
-    @include("home.slider")
-@show
+@yield('slider')
 
 
 @include("home.footer")
