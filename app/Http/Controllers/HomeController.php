@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AdminPanel\CategoryController;
+use App\Models\Category;
 use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class HomeController extends Controller
 {
-    //
+    public static function maincategorylist()
+    {
+        return Category::where('parent_id' , '=', 0)->with('children')->get();
+    }
     public function index()
     {
         $page='home';
@@ -32,6 +36,19 @@ class HomeController extends Controller
         ]);
     }
 
+
+    public function categorytransfers($id)
+    {
+
+
+        $category = Category::find($id);
+        $transfers=Transfer::where('category_id','=',$id)->get();
+        return view('home.categorytransfers', [
+            'category'=>$category,
+            'transfers'=>$transfers
+        ]);
+
+    }
 
     public function test()
 

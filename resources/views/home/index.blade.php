@@ -2,9 +2,8 @@
 
 @section('title', 'e commerce project')
 
-
-
 @section('content')
+
     <header id="gtco-header" class="gtco-cover" role="banner"
             style="background-image: url="({{asset('assets')}}/assets/images/img_4.jpg)">
     <div class="overlay"></div>

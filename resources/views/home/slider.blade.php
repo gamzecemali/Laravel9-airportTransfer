@@ -10,12 +10,11 @@
             <div class="owl-carousel owl-carousel-carousel">
                 @foreach($transferlist1 as $rs)
                 <div class="item">
-                    <a href="{{route('transfer',['id'=>$rs->id])}}"><img src="{{Storage::url($rs->image)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-                    <div style="text-align: center;color: white;font-weight:bold ;">
+                    <a href="{{route('transfer',['id'=>$rs->id])}}"><img src="{{Storage::url($rs->image)}}" ></a>
+                    <div style="text-align: center;color: white;font-weight:bolder ;">
                         {{$rs->title}}
                     </div>
                 </div>
-
                 @endforeach
             </div>
         </div>
