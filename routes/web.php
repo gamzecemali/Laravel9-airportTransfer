@@ -51,6 +51,12 @@ Route::middleware([
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[AdminHomeController::class,'index'])->name('index');
 
+
+    Route::get('/setting',[AdminHomeController::class,'setting'])->name('setting');
+    Route::post('/setting/update',[AdminHomeController::class,'setting.update'])->name('setting.update');
+
+
+
     Route::prefix('transfer')->name('transfer.')->controller(AdminTransferCategoryController::class)->group(function () {
 
         Route::get('/', 'index')->name('index');

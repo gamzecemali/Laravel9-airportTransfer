@@ -1,6 +1,9 @@
 @extends('layouts.frontbase')
 
-@section('title', 'e commerce project')
+@section('title', $setting->title)
+@section('keywords', $setting->keywords)
+@section('description', $setting->description)
+@section('icon', Storage::url($setting->icon))
 
 @section('content')
 

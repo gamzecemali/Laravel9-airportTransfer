@@ -11,7 +11,10 @@
 
 
     <title>@yield("title")</title>
-
+    <meta name="description" content="@yield("description")">
+    <meta name="keywords" content="@yield("keywords")">
+    <meta name="author" content="John Doe">
+    <link rel="icon" type="image/x-icon" href="@yield("icon")">
 
     <!--
       //////////////////////////////////////////////////////

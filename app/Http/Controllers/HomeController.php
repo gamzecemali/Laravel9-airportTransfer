@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Models\Category;
+use App\Models\Setting;
 use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,11 @@ class HomeController extends Controller
         $page='home';
         $sliderdata=Transfer::limit(4)->get();
         $transferlist1=Transfer::limit(6)->get();
+        $setting= Setting::first();
+
         return view('home.index',[
             'page'=>$page,
+            'setting'=>$setting,
             'sliderdata'=>$sliderdata,
             'transferlist1'=>$transferlist1
         ]);
