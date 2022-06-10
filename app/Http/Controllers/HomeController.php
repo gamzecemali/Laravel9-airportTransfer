@@ -46,20 +46,18 @@ class HomeController extends Controller
 
     public function references()
     {
-        echo"references";
-        exit();
+
         $setting= Setting::first();
-        return view('home.index',[
+        return view('home.references',[
             'setting'=>$setting,
         ]);
     }
 
     public function contact()
     {
-        echo"contact";
-        exit();
+
         $setting= Setting::first();
-        return view('home.index',[
+        return view('home.contact',[
             'setting'=>$setting,
         ]);
     }
@@ -69,10 +67,12 @@ class HomeController extends Controller
     public function transfer($id)
     {
         $data =Transfer::find($id);
+        $setting= Setting::first();
         $images = DB::table('images')->where('transfer_id', $id)->get();
         return view('home.transfer',[
             'data'=>$data,
-            'images'=>$images
+            'images'=>$images,
+            'setting'=>$setting
         ]);
     }
 
@@ -82,9 +82,11 @@ class HomeController extends Controller
 
 
         $category = Category::find($id);
+        $setting= Setting::first();
         $transfers=Transfer::where('category_id','=',$id)->get();
         return view('home.categorytransfers', [
             'category'=>$category,
+            'setting'=>$setting,
             'transfers'=>$transfers
         ]);
 

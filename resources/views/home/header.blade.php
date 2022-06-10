@@ -12,18 +12,20 @@
                 <ul>
                     <li><a href="{{route('location')}}">Location</a></li>
                     @foreach($mainCategories as $rs)
-                    <li class="has-dropdown">
-                        <a href="#">{{$rs->title}}</a>
-                        <ul class="dropdown">
-                            @if(count($rs->children))
-                                @include('home.categorytree',['children' => $rs->children])
-                            @endif
-                        </ul>
-                        <li><a href="{{route('about')}}">About Us</a></li>
-                        <li><a href="{{route('references')}}">References</a></li>
-                        <li><a href="{{route('contact')}}">Contact</a></li>
-
+                        <li class="has-dropdown">
+                            <a href="#">{{$rs->title}}</a>
+                            <ul class="dropdown">
+                                @if(count($rs->children))
+                                    @include('home.categorytree',['children' => $rs->children])
+                                @endif
+                            </ul>
+                        </li>
                     @endforeach
+                    <li><a href="{{route('about')}}">About Us</a></li>
+                    <li><a href="{{route('references')}}">References</a></li>
+                    <li><a href="{{route('contact')}}">Contact</a></li>
+
+
                 </ul>
             </div>
         </div>
