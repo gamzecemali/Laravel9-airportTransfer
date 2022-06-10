@@ -187,9 +187,7 @@
         </div>
     </div>
     </div>
-
 @endsection
-
 @section('slider')
     @include('home.slider')
 @endsection

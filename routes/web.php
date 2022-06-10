@@ -22,7 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/',[HomeController::class,'index'])->name(name:'home');
+Route::get('/location',[HomeController::class,'location'])->name(name:'location');
+Route::get('/references',[HomeController::class,'references'])->name(name:'references');
+Route::get('/contact',[HomeController::class,'contact'])->name(name:'contact');
+Route::get('/about',[HomeController::class,'about'])->name(name:'about');
+
 
 Route::get('/test',[HomeController::class,'test'])->name(name:'test');
 
@@ -53,7 +59,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 
     Route::get('/setting',[AdminHomeController::class,'setting'])->name('setting');
-    Route::post('/setting/update',[AdminHomeController::class,'setting.update'])->name('setting.update');
+    Route::post('/setting',[AdminHomeController::class,'settingUpdate'])->name('setting.update');
 
 
 

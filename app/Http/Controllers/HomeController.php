@@ -30,6 +30,42 @@ class HomeController extends Controller
 
     }
 
+    public function about()
+    {
+
+        $setting= Setting::first();
+        $data = Transfer::All();
+        $transferlist1=Transfer::limit(6)->get();
+        return view('home.about',[
+            'setting'=>$setting,
+            'transferlist1'=>$transferlist1,
+            'data'=>$data
+        ]);
+
+    }
+
+    public function references()
+    {
+        echo"references";
+        exit();
+        $setting= Setting::first();
+        return view('home.index',[
+            'setting'=>$setting,
+        ]);
+    }
+
+    public function contact()
+    {
+        echo"contact";
+        exit();
+        $setting= Setting::first();
+        return view('home.index',[
+            'setting'=>$setting,
+        ]);
+    }
+
+
+
     public function transfer($id)
     {
         $data =Transfer::find($id);

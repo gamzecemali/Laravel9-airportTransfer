@@ -11,7 +11,8 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return view("admin.index");
+        $setting=Setting::first();
+        return view("admin.index",['setting'=>$setting]);
     }
 
 
@@ -45,8 +46,10 @@ class HomeController extends Controller
         $data->smtpserver = $request->input('smtpserver');
         $data->smtpemail = $request->input('smtpemail');
         $data->smtppassword = $request->input('smtppassword');
+        $data->smtpport = $request->input('smtpport');
         $data->facebook = $request->input('facebook');
         $data->instagram = $request->input('instagram');
+        $data->twitter = $request->input('twitter');
         $data->aboutus = $request->input('aboutus');
         $data->contact = $request->input('contact');
         $data->references = $request->input('references');
