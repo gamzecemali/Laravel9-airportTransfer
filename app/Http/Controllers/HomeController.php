@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Message;
 use App\Models\Setting;
 use App\Models\Transfer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
@@ -90,6 +92,21 @@ class HomeController extends Controller
 
     }
 
+    public function storecomment(Request $request)
+    {
+        //dd($request);
+        $data = new Comment();
+        $data->user_id = Auth::id();
+        $data->transfer_id= $request->input('transfer_id');
+        $data->subject = $request->input('subject');
+        $data->ip = $request->ip();
+        $data->Comment = $request->input('Comment');
+        $data->rate = $request->input('rate');
+        $data->save();
+        return redirect()->route('transfer', ['id'=>$request->input('transfer_id')])->with('success','Your comment has been sent. Thank You.');
+
+    }
+
 
 
     public function transfer($id)
@@ -97,10 +114,13 @@ class HomeController extends Controller
         $data =Transfer::find($id);
         $setting= Setting::first();
         $images = DB::table('images')->where('transfer_id', $id)->get();
+        $reviews=Comment::where('transfer_id',$id)->where('status','True')->get();
         return view('home.transfer',[
             'data'=>$data,
             'images'=>$images,
-            'setting'=>$setting
+            'setting'=>$setting,
+            'reviews'=>$reviews,
+
         ]);
     }
 

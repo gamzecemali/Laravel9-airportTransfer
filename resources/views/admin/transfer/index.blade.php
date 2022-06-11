@@ -8,8 +8,6 @@
         <div class="row">
 
             <!-- Page Header -->
-            < class="col-lg-12">
-
 
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -36,12 +34,11 @@
                                 <th>Delete</th>
                                 <th>Show</th>
                             </tr>
-                            </thead>
+                            </thead> olmuyosa bosver ya yapabilcekmisinki sanmıyorum ama sende cok ugrastın bakstımh o kaodarw  dki bktım o kadar deniyim bi
                             <tbody>
-                            @foreach( $data as $rs)
-                                <tr>
+                            @foreach($data as $rs)
                                     <td>{{$rs -> id}}</td>
-                                    <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category , $rs->category->title) }}</td>
+                                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
                                     <td>{{$rs->title}}</td>
                                     <td>{{$rs -> base_price}}</td>
                                     <td>{{$rs -> km_price}}</td>

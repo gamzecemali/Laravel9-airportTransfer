@@ -2,9 +2,11 @@
 
 @section('title', $data->title)
 
+@php
+    $average=$data->comments->average('rate');
+@endphp
 
 @section('content')
-
 
 
         <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" >
@@ -25,6 +27,7 @@
                                 <h1>{{$data->category->title}}</h1>
                             </div>
 
+
                         </div>
 
                     </div>
@@ -36,6 +39,7 @@
             <div class="gtco-container">
                 <div class="row">
                     <div class="col-md-8 text-left gtco-heading">
+                        @include('home.messages')
                         <h2><b>{{$data->title}}</b></h2>
                         <p><b>{{$data->description}}</b></p>
                     </div>
@@ -89,92 +93,101 @@
 
                             <div class="row">
                                 <div class="col-md-8 text-left gtco-heading">
-                                    <h2>Product for iPhone</h2>
-                                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                                    {{--COMMENT FORM DIV--}}
+                                    <div class="col-md-12 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+                                        <div class="form-wrap">
+                                            <div class="tab">
+                                                <ul class="tab-menu">
+                                                    <body>
+                                                    <p style="text-align:left;"><h1>Write Your Review</h1></p>
+                                                    </body>
+                                                    </html>
+
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-content-inner active" data-content="signup">
+                                                        <form action="{{route('storecomment')}}" method="post">
+                                                            @csrf
+                                                            <div class="row form-group">
+                                                                <div class="col-md-12">
+                                                                    <input type="hidden" name="transfer_id"  class="form-control" value="{{$data->id}}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row form-group">
+                                                                <div class="col-md-12">
+                                                                    <label for="subject">Subject</label>
+                                                                    <input type="text" name="subject"  class="form-control" id="subject">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row form-group">
+                                                                <div class="col-md-12">
+                                                                    <textarea class="input" name="Comment"   placeholder="Your comment"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col-md-12">
+                                                                    <label for="rate">Your Rating</label>
+                                                                    <select name="rate">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col-md-12">
+                                                                    @auth()
+                                                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                                                    @else
+                                                                        <a href="/login" class="btn btn-danger"> For Submit Your Review, Please Login</a>
+                                                                    @endauth
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
+
+                        </div>
+                    </div>
+
+
+{{--                    commentlist--}}
+                    <div class="gtco-section">
+                        <div class="gtco-container">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+                                    <h2>Comments About {{$data->title}}</h2>
+                                    <h3>Avarage Rate: {{$average}}</h3>
                                 </div>
-                                <div class="col-md-6 mt-sm">
-                                    <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="ti-layers-alt"></i>
-						</span>
-                                        <div class="feature-copy">
-                                            <h3>Retina Ready</h3>
-                                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <ul class="fh5co-faq-list">
 
-                                    <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="ti-key"></i>
-						</span>
-                                        <div class="feature-copy">
-                                            <h3>Fully Responsive</h3>
-                                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        </div>
-                                    </div>
+                                        @foreach($reviews as $rs)
+                                            <li class="animate-box">
+                                                <h2><b>{{$rs->user->name}} </b>Says <b>{{$rs->subject}}</b> Rate:<b> {{$rs->rate}}</b></h2>
+                                                <p>{{$rs->review}}</p>
+                                            </li>
+                                        @endforeach
 
-                                    <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="ti-image"></i>
-						</span>
-                                        <div class="feature-copy">
-                                            <h3>Ready To Use</h3>
-                                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="ti-heart"></i>
-						</span>
-                                        <div class="feature-copy">
-                                            <h3>Download Files</h3>
-                                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="ti-infinite"></i>
-						</span>
-                                        <div class="feature-copy">
-                                            <h3>Download Files</h3>
-                                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="ti-credit-card"></i>
-						</span>
-                                        <div class="feature-copy">
-                                            <h3>Download Files</h3>
-                                            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        </div>
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <div class="row copyright">
-                    <div class="col-md-12">
-                        <p class="pull-left">
-                        </p>
-                        <p class="pull-right">
-                        <ul class="gtco-social-icons pull-right">
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                        </ul>
-                        </p>
-                    </div>
-                </div>
 
             </div>
         </footer>

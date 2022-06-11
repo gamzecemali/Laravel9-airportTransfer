@@ -14,7 +14,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a href="{{route('admin.faq.create')}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Question</a>
-                    <br>Faq
+                    <br><h1>FAQ</h1>
                 </div>
                 <div class="panel-body">
 
