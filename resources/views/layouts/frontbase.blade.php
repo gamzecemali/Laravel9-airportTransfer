@@ -52,6 +52,7 @@
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.css">
 
+
     <!-- Magnific Popup -->
     <link rel="stylesheet" href="{{asset('assets')}}/css/magnific-popup.css">
 

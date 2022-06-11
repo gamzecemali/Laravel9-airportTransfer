@@ -11,13 +11,6 @@ use Illuminate\Support\Facades\Storage;
 class AdminTransferCategoryController extends Controller
 {
 
-
-
-
-
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +21,6 @@ class AdminTransferCategoryController extends Controller
         //
 
         $data= Transfer::all() ;
-
         return view('admin.transfer.index', [
             'data' => $data
         ]);
@@ -75,8 +67,6 @@ class AdminTransferCategoryController extends Controller
         }
         $data->save();
         return redirect('admin/transfer');
-
-
 
 
     }

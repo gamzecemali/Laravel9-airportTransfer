@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'Aboutmda  Us'. $setting->title)
+@section('title', 'About  Us'. $setting->title)
 @include('home.header')
 @section('content')
     <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_2.jpg)">
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
                     <h2>What We Do?</h2>
-                    <p>{{$setting->aboutus}}</p>
+                    <p>{!!$setting->aboutus!!}</p>
                 </div>
             </div>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Models\Category;
+use App\Models\Faq;
+use App\Models\Message;
 use App\Models\Setting;
 use App\Models\Transfer;
 use Illuminate\Http\Request;
@@ -44,6 +46,18 @@ class HomeController extends Controller
 
     }
 
+    public function faq()
+    {
+        $setting= Setting::first();
+        $datalist= Faq::all();
+        return view('home.faq',[
+            'setting'=>$setting,
+            'datalist'=>$datalist,
+        ]);
+
+    }
+
+
     public function references()
     {
 
@@ -60,6 +74,20 @@ class HomeController extends Controller
         return view('home.contact',[
             'setting'=>$setting,
         ]);
+    }
+
+    public function storemessage(Request $request)
+    {
+
+        $data = new Message();
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->message = $request->input('message');
+        $data->subject = $request->input('subject');
+        $data->save();
+        return redirect()->route('contact')->with('info','Your message has been sent. Thank You.');
+
     }
 
 

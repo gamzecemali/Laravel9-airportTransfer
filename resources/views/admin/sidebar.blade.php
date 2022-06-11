@@ -51,8 +51,8 @@
                 <a href="/admin/category"><i class="fa fa-bar-chart-o fa-fw"></i><b>&nbsp;Category</b></a>
                 <a href="/admin/rezervation"><i class="fa fa-edit fa-fw"></i><b>&nbsp;Rezervation</b></a>
                 <a href="/admin/location"><i class="fa fa-flask fa-location-arrow"> </i><b>&nbsp;Location</b></a>
-                <a href="/admin/message"><i class="fa fa-flask fa-mail-reply-all"></i><b>&nbsp;Messages</b></a>
-                <a href="/admin/faq"><i class="fa fa-flask fa-question"></i><b>&nbsp;Faq</b></a>
+                <a href="{{route('admin.message.index')}}"><i class="fa fa-flask fa-mail-reply-all"></i><b>&nbsp;Messages</b></a>
+                <a href="{{route('admin.faq.index')}}"><i class="fa fa-flask fa-question"></i><b>&nbsp;Faq</b></a>
                 <a href="/admin/comment"><i class="fa fa-flask fa-comment-o"></i><b>&nbsp;Comments</b></a>
                 <a href="/admin/user"><i class="fa fa-user fa-user"></i><b>&nbsp;Users</b></a>
                 <a href="/admin/social"><i class="fa fa-facebook-square fa-facebook-square"></i><b>&nbsp;Social</b></a>
