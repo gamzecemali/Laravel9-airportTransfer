@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'About  Us'. $setting->title)
+@section('title', 'User Login'. $setting->title)
 @include('home.header')
 @section('content')
     <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_2.jpg)">
@@ -14,7 +14,7 @@
 
                         <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
                             <span class="intro-text-small"></span>
-                            <h1>About Us</h1>
+                            <h1>User Login</h1>
                         </div>
 
                     </div>
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
                     <h2>What We Do?</h2>
-                    <p>{!!$setting->aboutus!!}</p>
+                    @include('auth.login')
                 </div>
             </div>
 
