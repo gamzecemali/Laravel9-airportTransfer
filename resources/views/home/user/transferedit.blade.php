@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'User Comments')
+@section('title', 'User Transfer Edit')
 @include('home.header')
 @section('content')
     <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_4.jpg)">
@@ -98,8 +98,6 @@
                                                         console.error( error );
                                                     } );
                                             </script>
-
-
 
                                             <button type="submit" class="btn btn-primary">Save</button>
                                         </div>

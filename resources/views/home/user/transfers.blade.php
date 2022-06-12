@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'User Comments')
+@section('title', 'User Transfer')
 @include('home.header')
 @section('content')
     <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_4.jpg)">
