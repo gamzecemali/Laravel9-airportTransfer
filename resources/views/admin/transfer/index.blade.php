@@ -34,7 +34,7 @@
                                 <th>Delete</th>
                                 <th>Show</th>
                             </tr>
-                            </thead> olmuyosa bosver ya yapabilcekmisinki sanmıyorum ama sende cok ugrastın bakstımh o kaodarw  dki bktım o kadar deniyim bi
+                            </thead>
                             <tbody>
                             @foreach($data as $rs)
                                     <td>{{$rs -> id}}</td>

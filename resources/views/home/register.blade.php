@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'User Login' )
+@section('title', 'User Registeration Page' )
 @include('home.header')
 @section('content')
     <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_2.jpg)">
@@ -14,7 +14,7 @@
 
                         <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
                             <span class="intro-text-small"></span>
-                            <h1>User Login</h1>
+                            <h1>User Registration</h1>
                         </div>
 
                     </div>
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
 
-                    @include('auth.login')
+                    @include('auth.register')
                 </div>
             </div>
 

@@ -18,16 +18,28 @@
                         <span class="intro-text-small">Welcome to Splash</span>
                         <h1>Build website using this template.</h1>
                     </div>
+{{--                    LOGIN FORM--}}
                     <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
                         <div class="form-wrap">
+
                             <div class="tab">
                                 <ul class="tab-menu">
-                                    <li class="active gtco-first"><a href="#" data-tab="signup">Sign up</a></li>
-                                    <li class="gtco-second"><a href="#" data-tab="login">Login</a></li>
+                                    @auth()
+                                    <li class="gtco-second"><a href="/logoutuser" data-tab="login">Logout</a></li>
+                                    @endauth
+                                    @auth()
+                                    @guest()
+                                    <li class="active gtco-first"><a href="/loginregister" data-tab="signup">Sign up</a></li>
+                                    <li class="gtco-second"><a href="/loginuser" data-tab="login">Login</a></li>
+                                            @endauth
                                 </ul>
+                                @endguest
+
+
                                 <div class="tab-content">
                                     <div class="tab-content-inner active" data-content="signup">
-                                        <form action="#">
+                                        <form action="#" method="post">
+                                            @csrf
                                             <div class="row form-group">
                                                 <div class="col-md-12">
                                                     <label for="username">Username or Email</label>
@@ -53,8 +65,10 @@
                                             </div>
                                         </form>
                                     </div>
+
                                     <div class="tab-content-inner" data-content="login">
-                                        <form action="#">
+                                        <form action="#" method="post">
+                                            @csrf
                                             <div class="row form-group">
                                                 <div class="col-md-12">
                                                     <label for="username">Username or Email</label>
@@ -74,6 +88,7 @@
                                             </div>
                                         </form>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
