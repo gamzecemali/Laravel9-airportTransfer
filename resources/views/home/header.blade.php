@@ -25,6 +25,7 @@
                     <li><a href="{{route('faq')}}">FAQ</a></li>
                     <li><a href="{{route('references')}}">REFERENCES</a></li>
                     <li><a href="{{route('contact')}}">CONTACT</a></li>
+                    <li><a href="{{route('userpanel.index')}}">MY PROFILE</a></li>
 
 
                 </ul>
