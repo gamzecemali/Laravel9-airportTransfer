@@ -12,7 +12,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a href="{{route('admin.transfer.create')}}" class="btn btn-block btn-success btn=sm" style="width: 100px">Add Transfer</a>
-                    <br>Category List
+                    <br>Transfer List
                 </div>
                 <div class="panel-body">
 

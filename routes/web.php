@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminUserController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
@@ -35,9 +36,11 @@ Route::get('/faq',[HomeController::class,'faq'])->name(name:'faq');
 Route::post('/storemessage',[HomeController::class,'storemessage'])->name(name:'storemessage');
 Route::get('/faq',[HomeController::class,'faq'])->name(name:'faq');
 Route::post('/storecomment',[HomeController::class,'storecomment'])->name(name:'storecomment');
-Route::view('/loginuser', 'home.login');
-Route::view('/loginregister', 'home.register');
+Route::view('/loginuser', 'home.login')->name(name:'loginuser');
+Route::view('/registeruser', 'home.register')->name(name:'registeruser');
 Route::get('/logoutuser', [HomeController::class,'logout'])->name(name:'logoutuser');
+Route::view('/loginadmin', 'admin.login')->name(name:'loginadmin');
+Route::post('/loginadmincheck', [HomeController::class,'loginadmincheck'])->name(name:'loginadmincheck');
 
 
 Route::get('/test',[HomeController::class,'test'])->name(name:'test');
@@ -64,7 +67,7 @@ Route::middleware([
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[AdminHomeController::class,'index'])->name('index');
 
 
@@ -123,6 +126,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/update/{id}','update')->name('update');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
 });
+    Route::prefix('user')->name('user.')->controller(AdminUserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::post('/addrole/{id}', 'addrole')->name('addrole');
+        Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
+    });
 });
 
 

@@ -23,71 +23,29 @@
                         <div class="form-wrap">
 
                             <div class="tab">
-                                <ul class="tab-menu">
-                                    @auth()
-                                    <li class="gtco-second"><a href="/logoutuser" data-tab="login">Logout</a></li>
-                                    @endauth
-                                    @auth()
-                                    @guest()
-                                    <li class="active gtco-first"><a href="/loginregister" data-tab="signup">Sign up</a></li>
-                                    <li class="gtco-second"><a href="/loginuser" data-tab="login">Login</a></li>
-                                            @endauth
-                                </ul>
-                                @endguest
+{{--                                <ul class="tab-menu">--}}
+{{--                                    @auth()--}}
+{{--                                    <li class="gtco-second"><a href="/" data-tab="login">{{Auth::user()->name}}</a></li>--}}
+{{--                                    <li class="gtco-second"><a href="/logoutuser" data-tab="login">Logout</a></li>--}}
+{{--                                    @endauth--}}
+
+{{--                                    @guest()--}}
+{{--                                    <li class="active gtco-first"><a href="/loginregister" data-tab="signup">Sign up</a></li>--}}
+{{--                                    <li class="gtco-second"><a href="/loginuser" data-tab="login">Login</a></li>--}}
+{{--                                    @endguest--}}
+{{--                                </ul>--}}
+
 
 
                                 <div class="tab-content">
-                                    <div class="tab-content-inner active" data-content="signup">
-                                        <form action="#" method="post">
-                                            @csrf
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="username">Username or Email</label>
-                                                    <input type="text" class="form-control" id="username">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="password">Password</label>
-                                                    <input type="password" class="form-control" id="password">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="password2">Repeat Password</label>
-                                                    <input type="password" class="form-control" id="password2">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" value="Sign up">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="tab-content-inner" data-content="login">
-                                        <form action="#" method="post">
-                                            @csrf
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="username">Username or Email</label>
-                                                    <input type="text" class="form-control" id="username">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="password">Password</label>
-                                                    <input type="password" class="form-control" id="password">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" value="Login">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    @auth()
+                                        <a href="/userpanel"><input type="submit" class="btn btn-primary" value="{{Auth::user()->name}}"></a>
+                                        <a href="/logoutuser"><input type="submit" class="btn btn-primary" value="Log Out"></a>
+                                    @endauth
+                                    @guest()
+                                        <a href="/register"><input type="submit" class="btn btn-primary" value="Sign up"></a>
+                                        <a href="/login"><input type="submit" class="btn btn-primary" value="Login"></a>
+                                    @endguest
 
                                 </div>
                             </div>

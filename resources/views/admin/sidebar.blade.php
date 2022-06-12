@@ -12,7 +12,8 @@
                         <img src="{{asset('assets')}}/admin/assets/img/user.jpg" alt="">
                     </div>
                     <div class="user-info">
-                        <div>Jonny <strong>Deen</strong></div>
+                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
+                        <a href="/logoutuser" class="text-uppercase">Logout</a>
                         <div class="user-text-online">
                             <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                         </div>
@@ -35,15 +36,8 @@
                 <a href="index.html"><i class="fa fa-home fa-home"></i><b>&nbsp;Dashboard</b></a>
             </li>
             <li>
-                <a href="/admin/transfer"><i class="fa fa-bar-chart-o fa-fw"></i>Transfer<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="flot.html">Airport</a>
-                    </li>
-                    <li>
-                        <a href="morris.html">City</a>
-                    </li>
-                </ul>
+                <a href="/admin/transfer"><i class="fa fa-bar-chart-o fa-fw"></i><b>Transfer</b><span class="fa arrow"></span></a>
+
                 <!-- second-level-items -->
             </li>
 
