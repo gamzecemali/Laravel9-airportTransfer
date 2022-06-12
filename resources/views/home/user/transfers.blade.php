@@ -11,7 +11,7 @@
                     <div class="row row-mt-15em">
 
                         <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-                            <h1>User Comment</h1>
+                            <h1>User Transfer</h1>
                         </div>
 
                     </div>
@@ -32,34 +32,38 @@
                     <div class="col-md-9 animate-box">
                         <div class="gtco-contact-info">
                             <h3>User Comments</h3>
+                            <a href="{{route('userpanel.addtransfer')}}" class="btn btn-primary btn-danger">ADD Transfer</a>
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th style ="width:10px">Id </th>
-                                    <th>Name</th>
-                                    <th>Transfer</th>
-                                    <th>Subject</th>
-                                    <th>Rate</th>
+                                    <th style ="width:10px">Id</th>
+                                    <th>Category</th>
+                                    <th>Transfer Title</th>
+                                    <th>Keywords</th>
+                                    <th>description</th>
                                     <th>Status</th>
-
+                                    <th style="width: 50px">Edit</th>
                                     <th style="width: 50px">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach( $comments as $rs )
+                                @foreach( $transfers as $rs )
                                     <tr>
                                         <td>{{$rs->id}}</td>
-                                        <td><a href="{{route('transfer', ['id'=>$rs->transfer_id])}}">
-                                                {{$rs->user->name}}</a>
+                                        <td><a href="{{route('transfer', ['id'=>$rs->id])}}">
+                                                {{$rs->category->title}}</a>
                                         </td>
-                                        <td>{{$rs->transfer->title}}</td>
-                                        <td>{{$rs->subject}} </td>
-                                        <td>{{$rs->rate}} </td>
+                                        <td>{{$rs->title}}</td>
+                                        <td>{{$rs->keywords}} </td>
+                                        <td>{{$rs->description}} </td>
                                         <td>{{$rs->status}} </td>
+                                        <td><a href="{{route('userpanel.transferedit',['id'=>$rs->id])}}" class="btn btn-primary btn-success"
+                                            >Edit</a>
+                                        </td>
+                                        <td><a href="{{route('userpanel.transferdestroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
+                                               onclick="return confirm ('Deleting !! Are you sure ?')">Delete</a>
+                                        </td>
 
-
-                                        <td><a href="{{route('userpanel.commentdestroy',['id'=>$rs ->id])}}" class="btn btn-primary btn-danger"
-                                               onclick="return confirm ('Deleting !! Are you sure ?')">Delete</a> </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

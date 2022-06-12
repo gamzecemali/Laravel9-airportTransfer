@@ -73,6 +73,12 @@ Route::middleware([
 Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/Comment', 'Comment')->name('Comment');
+    Route::get('/transfer', 'transfer')->name('transfer');
+    Route::get('/addtransfer', 'addtransfer')->name('addtransfer');
+    Route::post('/storetransfer', 'storetransfer')->name('storetransfer');
+    Route::get('/transferedit/{id}', 'transferedit')->name('transferedit');
+    Route::post('/transferupdate/{id}', 'transferupdate')->name('transferupdate');
+    Route::get('/transferdestroy/{id}', 'transferdestroy')->name('transferdestroy');
     Route::get('/commentdestroy/{id}', 'commentdestroy')->name('commentdestroy');
 });
 
